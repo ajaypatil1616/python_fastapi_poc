@@ -1,0 +1,8 @@
+#
+1.Schemas:(Pydantic models): Define the structure and data types of your data.
+2.Serialization: Converting complex data types into JSON using Pydantic models when 
+sending responses.
+3.Deserialization: Converting JSON into complex data types using Pydantic models when 
+receiving requests.
+4.Validation: Ensuring the data conforms to the defined schema during both serialization 
+and deserialization.

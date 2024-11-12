@@ -1,0 +1,144 @@
+#FastAPI is a modern, fast (high-performance), web framework for building APIs with 
+Python based on standard Python type hints.
+
+
+#The key features are:
+
+1.Fast: Very high performance, on par with NodeJS and Go (thanks to Starlette and Pydantic).
+ One of the fastest Python frameworks available.
+2.Fast to code: Increase the speed to develop features by about 200% to 300%. *
+3.Fewer bugs: Reduce about 40% of human (developer) induced errors. *
+4.Intuitive: Great editor support. Completion everywhere. Less time debugging.
+5.Easy: Designed to be easy to use and learn. Less time reading docs.
+6.Short: Minimize code duplication. Multiple features from each parameter declaration. 
+Fewer bugs.
+7.Robust: Get production-ready code. With automatic interactive documentation.
+8.Standards-based: Based on (and fully compatible with) the open standards for APIs: 
+OpenAPI (previously known as Swagger) and JSON Schema.
+
+#Requirements
+python 3.6 +
+FastAPI stands on the shoulders of giants:
+Starlette for the web parts.
+Pydantic for the data parts.
+
+# It supports async await
+1.Django :Yes, can be done with help of Asyncio but little slower.
+2.flask : No, but can we done using other libraries.
+3. fastapi :Yes, but faster beacuse of Pydantic.
+
+# why to use fastapi:
+Django suits larger, feature-rich applications, 
+while Flask offers simplicity and flexibility for smaller projects. 
+FastAPI excels in high-performance APIs and real-time applications, particularly for 
+projects with high concurrency needs(High concurrency refers to the ability of the 
+framework to handle many requests simultaneously.)
+
+#advantages :It is a great choice for building fast performance APIs and microservices
+
+#Disadvantages:Main files can we crowdy and lack of built-in security.
+
+#To run 
+fastapi run (for production)
+fastapi dev main.py (for development)
+uvicorn main:app --reload
+
+
+#
+Starlette is a lightweight ASGI framework/toolkit, which is ideal for building async web 
+services in Python.
+
+It is production-ready, and gives you the following:
+
+    A lightweight, low-complexity HTTP web framework.
+    WebSocket support.
+    In-process background tasks.
+    Startup and shutdown events.
+    Test client built on httpx.
+    CORS, GZip, Static Files, Streaming responses.
+    Session and Cookie support.
+    100% test coverage.
+    100% type annotated codebase.
+    Few hard dependencies.
+    Compatible with asyncio and trio backends.
+    Great overall performance against independent benchmarks.
+
+    # PROGRAM
+    from starlette.applications import Starlette
+    from starlette.responses import JSONResponse
+    from starlette.routing import Route
+
+
+    async def homepage(request):
+        return JSONResponse({'hello': 'world'})
+
+
+    app = Starlette(debug=True, routes=[
+        Route('/', homepage),
+])
+
+Starlette is designed to be used either as a complete framework, or as an ASGI toolkit. 
+You can use any of its components independently.
+
+
+#
+Pydantic is the most widely used data validation library for Python.
+Define how data should be in pure, canonical Python 3.8+; validate it with Pydantic.
+
+#Why use Pydantic?
+1.Powered by type hints — with Pydantic, schema validation and serialization are 
+controlled by type annotations; less to learn, less code to write, and integration with 
+your IDE and static analysis tools
+
+2.Speed — Pydantic's core validation logic is written in Rust. As a result, Pydantic is 
+among the fastest data validation libraries for Python. 
+
+3.JSON Schema — Pydantic models can emit JSON Schema, allowing for easy integration with 
+other tools. 
+
+4.Strict and Lax mode — Pydantic can run in either strict=True mode (where data is not 
+converted) or strict=False mode where Pydantic tries to coerce(forcefully) data to the 
+correct type where appropriate.
+
+4.Dataclasses, TypedDicts and more — Pydantic supports validation of many standard library
+ types including dataclass and TypedDict. 
+
+5.Customisation — Pydantic allows custom validators and serializers to alter how data 
+is processed in many powerful ways. 
+
+6.Ecosystem — around 8,000 packages on PyPI use Pydantic, including massively popular
+libraries like FastAPI, huggingface, Django Ninja, SQLModel, & LangChain. 
+
+
+#Union, imported from typing, allows a field in your FastAPI endpoint to accept more than 
+one data type. 
+For example, Union[str, int] means the field can accept either a string or an integer
+
+#BaseModel is a core component of Pydantic, used for defining and validating data models. 
+It plays a crucial role in FastAPI's data handling, ensuring type safety and validation.
+
+
+#which web framework is best for handling big data in python
+For building web applications that need to handle big data processing, consider using 
+FastAPI for the web framework due to its performance and modern features. Combine it 
+with Apache Spark (PySpark) or Dask for the actual big data processing.This combination 
+provides both the high-concurrency capabilities of FastAPI and the powerful data 
+processing capabilities of Spark or Dask.
+
+#which framework in faster than fastapi in python
+1.Starlette:FastAPI is built on top of Starlette, which means Starlette offers similar 
+performance benefits.
+2.Sanic :Less feature-rich and mature compared to FastAPI.
+
+#
+An ORM has tools to convert ("map") between objects in code and 
+database tables ("relations")
+With an ORM, you normally create a class that represents a table in a SQL database, 
+each attribute of the class represents a column, with a name and a type.
+
+#
+What is Depends?
+Depends is used to declare dependencies in FastAPI. It can be used to automatically handle things like 
+authentication, authorization, and database connections. When FastAPI sees Depends in an endpoint, 
+it knows to call the provided function (get_current_active_user in this case) and inject the result 
+into the endpoint function.
